@@ -1,0 +1,8 @@
+{
+  "name": "Maple & Main",
+  "description": "Modern Rustic dining experience in the heart of the city, blending artisanal warmth with sophisticated energy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

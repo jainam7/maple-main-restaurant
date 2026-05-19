@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
+  
+  --color-maple: #B07D4F;
+  --color-charcoal: #1A1A1A;
+  --color-cream: #FDFBF7;
+  --color-forest: #3A4D39;
+  --color-glass: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  :root {
+    --bg-main: var(--color-cream);
+    --text-main: var(--color-charcoal);
+    --border-color: rgba(26, 26, 26, 0.1);
+    --item-bg: white;
+  }
+
+  .dark {
+    --bg-main: var(--color-charcoal);
+    --text-main: var(--color-cream);
+    --border-color: rgba(253, 251, 247, 0.1);
+    --item-bg: #222;
+  }
+
+  body {
+    @apply bg-[var(--bg-main)] text-[var(--text-main)] font-sans antialiased transition-colors duration-500 overflow-x-hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+}
+
+.bento-item {
+  @apply bg-[var(--item-bg)] border border-[var(--border-color)] rounded-2xl p-5 transition-all duration-300;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.liquid-fill {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.liquid-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-maple);
+  transition: left 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+
+.liquid-fill:hover::after {
+  left: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-charcoal);
+  border: 2px solid var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-maple);
+}
