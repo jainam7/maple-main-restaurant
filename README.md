@@ -1,20 +1,130 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Maple & Main Restaurant
 
-# Run and deploy your AI Studio app
+Maple & Main is a modern restaurant website for an artisanal dining concept. The app presents a polished landing experience with animated hero content, featured menu items, interactive menu filtering, guest testimonials, and a reservation form backed by a small Express API.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/7873a86b-bd63-4349-991c-14a4ea793d5a
+- Responsive React single-page app built with Vite
+- Animated hero, navigation, menu, contact, and reservation sections
+- Interactive menu tabs for breakfast, lunch, dinner, and drinks
+- Reservation form that posts to `/api/reserve`
+- Express server for local development and production serving
+- Tailwind CSS styling with Motion animations and Lucide icons
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- React 19
+- TypeScript
+- Vite
+- Express
+- Tailwind CSS
+- Motion
+- Lucide React
 
+## Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Prerequisites
+
+- Node.js
+- npm
+
+### Install
+
+```bash
+npm install
+```
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+The app runs at:
+
+```text
+http://localhost:3000
+```
+
+## Available Scripts
+
+```bash
+npm run dev
+```
+
+Starts the Express server with Vite middleware for local development.
+
+```bash
+npm run build
+```
+
+Builds the Vite frontend and bundles the Express server into `dist/server.cjs`.
+
+```bash
+npm start
+```
+
+Runs the production server from the built `dist` output.
+
+```bash
+npm run preview
+```
+
+Runs Vite preview for the frontend build.
+
+```bash
+npm run lint
+```
+
+Runs TypeScript checks with `tsc --noEmit`.
+
+```bash
+npm run clean
+```
+
+Removes generated build output.
+
+## Reservation API
+
+The app includes one API route:
+
+```text
+POST /api/reserve
+```
+
+Expected request fields:
+
+- `name`
+- `email`
+- `date`
+- `time`
+- `guests`
+- `special`
+
+The current server logs the reservation and returns a success response. In a production app, this route can be extended to store reservations or send confirmation emails.
+
+## Restaurant Address
+
+```text
+118 Yorkville Ave
+Toronto, ON M5R 1C2
+```
+
+## Project Structure
+
+```text
+src/
+  components/
+    About.tsx
+    BentoGrid.tsx
+    CustomCursor.tsx
+    Hero.tsx
+    InteractiveMenu.tsx
+    MagneticButton.tsx
+    Navbar.tsx
+  App.tsx
+  index.css
+  main.tsx
+server.ts
+vite.config.ts
+```
